@@ -24,7 +24,9 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    run_tests
+    run_tests(
+        device: "iPhone 6"
+    )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
