@@ -11,6 +11,9 @@ jobs:
       xcode: "9.0"
 
     steps:
+      - run:
+        name: Set Ruby Version
+        command: echo "ruby-2.4"> ~/.ruby-version
       - checkout
       - run: bundle install
 
