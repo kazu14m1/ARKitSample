@@ -29,9 +29,9 @@ jobs:
       # and save the same XML files under test-results folder
       # in the Artifacts tab
       - store_test_results:
-          path: /Users/distiller/project/scan
+          path: /Users/distiller/project/output/scan
       - store_artifacts:
-          path: /Users/distiller/project
+          path: /Users/distiller/project/output
       # - store_artifacts:
       #     path: ~/Library/Logs/scan
       #     destination: scan-logs
