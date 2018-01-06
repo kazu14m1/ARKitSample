@@ -16,6 +16,7 @@ jobs:
     shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
+      - run: mkdir $FL_OUTPUT_DIR
       - run: bundle install
       # Build the app and run tests
       - run:
