@@ -20,13 +20,15 @@ platform :ios do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     # cocoapods
     # cocoapods
+    setup_circle_ci
   end
 
   desc "Runs all the tests"
   lane :test do
-    run_tests(
-        device: "iPhone 6"
-    )
+    scan
+#     run_tests(
+#         device: "iPhone 6"
+#     )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
