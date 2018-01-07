@@ -41,9 +41,9 @@ jobs:
     steps:
       - checkout
       - run: swiftlint lint --reporter junit | tee result.xml
-      - run: mkdir $CIRCLE_TEST_REPORTS/django
+      - run: mkdir $CIRCLE_TEST_REPORTS/junit
       - run:
-          command: cp result.xml $CIRCLE_TEST_REPORTS/django/result.xml
+          command: cp result.xml $CIRCLE_TEST_REPORTS/junit/result.xml
       - store_artifacts:
           path: result.xml
       - store_test_results:
