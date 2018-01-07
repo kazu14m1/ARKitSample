@@ -30,13 +30,10 @@ jobs:
       # Collect XML test results data to show in the UI,
       # and save the same XML files under test-results folder
       # in the Artifacts tab
-      - store_test_results:
-          path: /Users/distiller/project/output/scan
       - store_artifacts:
           path: /Users/distiller/project/output
-      # - store_artifacts:
-      #     path: ~/Library/Logs/scan
-      #     destination: scan-logs
+      - store_test_results:
+          path: /Users/distiller/project/output/scan
 
   swiftlint:
     docker:
@@ -44,6 +41,9 @@ jobs:
     steps:
       - checkout
       - run: swiftlint lint --reporter junit | tee result.xml
+      - run: mkdir $CIRCLE_TEST_REPORTS/django
+      - run:
+          command: cp result.xml $CIRCLE_TEST_REPORTS/django/result.xml
       - store_artifacts:
           path: result.xml
       - store_test_results:
